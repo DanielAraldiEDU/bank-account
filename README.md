@@ -27,4 +27,4 @@ java App
 
 Atividade da matéria programação orientada a objetos lecionada pelo professor Carlos Henrique Bughi.
 
-Atividade realizada por [Daniel Sansão Araldi](https://github.com/DanielAraldi), Jonathas Meine e Mateus da Silva.
+Atividade realizada por [Daniel Sansão Araldi](https://github.com/DanielAraldi), [Jonathas Meine](https://github.com/jonhymeine) e [Mateus da Silva](https://github.com/malockey).
