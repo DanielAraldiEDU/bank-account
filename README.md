@@ -11,6 +11,20 @@ conjunto de contas e forneça métodos que permitam que sejam feitas criações 
 saques (uma conta corrente só pode fazer saques desde que o valor não exceda o limite de saque [limite +
 saldo]), depósitos, emissão de saldo e extrato e transferência entre contas.
 
+#### Como executar?
+
+No terminal digite o seguinte comando para compilar todos os arquivos `.java`:
+
+```java
+javac App.java
+```
+
+Logo em seguida para você ver o programa ganhar vida digite esse comando no terminal:
+
+```java
+java App
+```
+
 Atividade da matéria programação orientada a objetos lecionada pelo professor Carlos Henrique Bughi.
 
 Atividade realizada por [Daniel Sansão Araldi](https://github.com/DanielAraldi), Jonathas Meine e Mateus da Silva.
