@@ -1,13 +1,13 @@
 import java.util.ArrayList;
 
 public class CurrentAccount {
-  private Boolean special;
+  private boolean special;
   private double limit;
   private int number;
   private double balance;
   private ArrayList<Movement> movements;
 
-  public CurrentAccount(Boolean special, double limit, int number, double balance) {
+  public CurrentAccount(boolean special, double limit, int number, double balance) {
     this.special = special;
     this.limit = limit;
     this.number = number;
@@ -15,8 +15,8 @@ public class CurrentAccount {
     this.movements = new ArrayList<Movement>();
   }
 
-  private void createMovement(String description, double value) {
-    Movement movement = new Movement(description, 'D', value);
+  private void createMovement(String description, char type, double value) {
+    Movement movement = new Movement(description, type, value);
     this.movements.add(movement);
   }
 
@@ -24,25 +24,25 @@ public class CurrentAccount {
     return this.number;
   }
 
-  public Boolean deposit(double value) {
+  public boolean deposit(double value) {
     if (value > 0) {
       this.balance += value;
-      this.createMovement("Deposit some money", value);
+      this.createMovement("Deposit some money.", 'C', value);
       return true;
     }
-    System.out.println("Invalid value. Try again.");
+    System.out.println("Invalid value! Try again.");
     return false;
   }
 
-  public Boolean drawMoney(double value) {
-    double currentBalance = this.balance -= value;
+  public boolean drawMoney(double value) {
+    boolean isValidValue = value > 0 && value <= this.balance && value <= this.limit;
 
-    Boolean isValidValue = value > 0 && value <= this.balance && value <= this.limit && currentBalance >= 0;
     if (isValidValue) {
-      this.createMovement("Draw some money", currentBalance);
+      double currentBalance = this.balance -= value;
+      this.createMovement("Draw some money.", 'D', currentBalance);
       return true;
     }
-    System.out.println("Invalid value. Try again.");
+    System.out.println("Invalid value! Try again.");
     return false;
   }
 }

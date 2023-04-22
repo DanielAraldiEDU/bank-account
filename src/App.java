@@ -1,6 +1,9 @@
+import java.util.ArrayList;
+
 public class App {
     public static void main(String[] args) throws Exception {
-        Bank bank = new Bank();
+        ArrayList<CurrentAccount> accounts = new ArrayList<CurrentAccount>();
+        Bank bank = new Bank(accounts);
         int firstAccountId = bank.createAccount(true, 250, 1000);
         int secoundAccountId = bank.createAccount(false, 5000, 10000);
         bank.deposit(firstAccountId, 100);

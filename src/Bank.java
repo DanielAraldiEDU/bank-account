@@ -3,8 +3,8 @@ import java.util.ArrayList;
 public class Bank {
   private ArrayList<CurrentAccount> accounts;
 
-  public Bank() {
-    this.accounts = new ArrayList<CurrentAccount>();
+  public Bank(ArrayList<CurrentAccount> accounts) {
+    this.accounts = accounts;
   }
 
   private CurrentAccount localizeAccount(int accountNumber) {
@@ -16,7 +16,7 @@ public class Bank {
     return null;
   }
 
-  public int createAccount(Boolean special, double limit, double balance) {
+  public int createAccount(boolean special, double limit, double balance) {
     int accountNumber = this.accounts.size();
 
     CurrentAccount account = new CurrentAccount(special, limit, accountNumber, balance);
@@ -25,7 +25,7 @@ public class Bank {
     return accountNumber;
   }
 
-  public Boolean deposit(int accountNumber, double value) {
+  public boolean deposit(int accountNumber, double value) {
     CurrentAccount account = this.localizeAccount(accountNumber);
 
     if (account == null) {
@@ -36,7 +36,7 @@ public class Bank {
     }
   }
 
-  public Boolean deleteAccount(int accountNumber) {
+  public boolean deleteAccount(int accountNumber) {
     CurrentAccount account = this.localizeAccount(accountNumber);
 
     if (account == null) {
@@ -48,7 +48,7 @@ public class Bank {
     }
   }
 
-  public Boolean drawMoney(int accountNumber, double value) {
+  public boolean drawMoney(int accountNumber, double value) {
     CurrentAccount account = this.localizeAccount(accountNumber);
 
     if (account == null) {
@@ -59,12 +59,12 @@ public class Bank {
     }
   }
 
-  public Boolean transfer(int fromAccountNumber, int toAccountNumber, double value) {
+  public boolean transfer(int fromAccountNumber, int toAccountNumber, double value) {
     CurrentAccount fromAccount = this.localizeAccount(fromAccountNumber);
     CurrentAccount toAccount = this.localizeAccount(toAccountNumber);
 
-    if (fromAccount == null || toAccount == null || value < 0) {
-      System.out.println(value < 0 ? "Invalid value. Try again." : "Account not found! Try again.");
+    if (fromAccount == null || toAccount == null || value <= 0) {
+      System.out.println(value <= 0 ? "Invalid value! Try again." : "Account not found! Try again.");
       return false;
     }
 
@@ -73,7 +73,7 @@ public class Bank {
       return true;
     }
 
-    System.out.println("Transfer failed. Try again.");
+    System.out.println("Transfer failed! Try again.");
     return false;
   }
 }
