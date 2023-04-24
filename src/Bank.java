@@ -1,27 +1,30 @@
-import java.util.ArrayList;
-
 public class Bank {
-  private ArrayList<CurrentAccount> accounts;
+  private CurrentAccount[] accounts;
 
-  public Bank(ArrayList<CurrentAccount> accounts) {
+  public Bank(CurrentAccount[] accounts) {
     this.accounts = accounts;
   }
 
   private CurrentAccount localizeAccount(int accountNumber) {
-    for (CurrentAccount account : this.accounts) {
-      if (account.getNumber() == accountNumber) {
-        return account;
+    for(int i = 0; i < this.accounts.length; i++) {
+      if (this.accounts[i] != null && this.accounts[i].getNumber() == accountNumber) {
+        return this.accounts[i];
       }
     }
     return null;
   }
 
   public int createAccount(boolean special, double limit, double balance) {
-    int accountNumber = this.accounts.size();
+    int accountNumber = this.accounts.length;
 
     CurrentAccount account = new CurrentAccount(special, limit, accountNumber, balance);
 
-    this.accounts.add(account);
+    for (int i = 0; i < this.accounts.length; i++) {
+      if (this.accounts[i] == null) {
+        this.accounts[i] = account;
+        return accountNumber;
+      }
+    }
     return accountNumber;
   }
 
@@ -43,8 +46,14 @@ public class Bank {
       System.out.println("Account not found! This account ins't exist.");
       return false;
     } else {
-      this.accounts.remove(account);
-      return true;
+      for (int i = 0; i < this.accounts.length; i++) {
+        if (this.accounts[i] != null && this.accounts[i].getNumber() == account.getNumber()) {
+          this.accounts[i] = null;
+          return true;
+        }
+      }
+      System.out.println("Account not found! This account ins't exist.");
+      return false;
     }
   }
 

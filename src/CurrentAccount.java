@@ -1,23 +1,27 @@
-import java.util.ArrayList;
-
 public class CurrentAccount {
   private boolean special;
   private double limit;
   private int number;
   private double balance;
-  private ArrayList<Movement> movements;
+  private Movement[] movements;
 
   public CurrentAccount(boolean special, double limit, int number, double balance) {
     this.special = special;
     this.limit = limit;
     this.number = number;
     this.balance = balance;
-    this.movements = new ArrayList<Movement>();
+    this.movements = new Movement[9999];
   }
 
   private void createMovement(String description, char type, double value) {
     Movement movement = new Movement(description, type, value);
-    this.movements.add(movement);
+
+    for (int i = 0; i < this.movements.length; i++) {
+      if (this.movements[i] == null) {
+        this.movements[i] = movement;
+        return;
+      }
+    }
   }
 
   public int getNumber() {
