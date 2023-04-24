@@ -17,7 +17,7 @@ public class Bank {
   public int createAccount(boolean special, double limit, double balance) {
     int accountNumber = this.accounts.length;
 
-    CurrentAccount account = new CurrentAccount(special, limit, accountNumber, balance);
+    CurrentAccount account = new CurrentAccount(limit, accountNumber, balance);
 
     for (int i = 0; i < this.accounts.length; i++) {
       if (this.accounts[i] == null) {

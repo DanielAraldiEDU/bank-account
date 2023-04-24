@@ -5,8 +5,16 @@ public class CurrentAccount {
   private double balance;
   private Movement[] movements;
 
-  public CurrentAccount(boolean special, double limit, int number, double balance) {
-    this.special = special;
+  public CurrentAccount(int number, double balance) {
+    this.special = true;
+    this.limit = 1000;
+    this.number = number;
+    this.balance = balance;
+    this.movements = new Movement[9999];
+  }
+
+  public CurrentAccount(double limit, int number, double balance) {
+    this.special = true;
     this.limit = limit;
     this.number = number;
     this.balance = balance;
@@ -28,7 +36,11 @@ public class CurrentAccount {
     return this.number;
   }
 
-  public boolean deposit(double value) {
+  public double getMoney() {
+    return this.balance;
+  }
+
+  protected boolean deposit(double value) {
     if (value > 0) {
       this.balance += value;
       this.createMovement("Deposit some money.", 'C', value);
@@ -36,6 +48,15 @@ public class CurrentAccount {
     }
     System.out.println("Invalid value! Try again.");
     return false;
+  }
+
+  protected String getExtract() {
+    for (int i = 0; i < this.movements.length; i++) {
+      if (this.movements[i] != null) {
+        this.movements[i].getMovements();
+      }
+    }
+    return "Check your extract above!";
   }
 
   public boolean drawMoney(double value) {
