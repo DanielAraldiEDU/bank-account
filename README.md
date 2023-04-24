@@ -2,7 +2,7 @@
 
 [![wakatime](https://wakatime.com/badge/user/920a7e43-2969-4212-82ff-1b375685ff58/project/2505940d-cb90-49f9-96c4-bfc936fe2cdd.svg)](https://wakatime.com/badge/user/920a7e43-2969-4212-82ff-1b375685ff58/project/2505940d-cb90-49f9-96c4-bfc936fe2cdd)
 
-#### Cenário:
+#### Cenário: 👀
 
 Uma conta corrente possui um número, um saldo, um status que informa se ela é especial ou
 não, um limite e um conjunto de movimentações. Uma movimentação possui uma descrição, um valor e uma
@@ -11,7 +11,7 @@ conjunto de contas e forneça métodos que permitam que sejam feitas criações 
 saques (uma conta corrente só pode fazer saques desde que o valor não exceda o limite de saque [limite +
 saldo]), depósitos, emissão de saldo e extrato e transferência entre contas.
 
-#### Como executar?
+#### Como executar? 🐱‍🏍
 
 No terminal digite o seguinte comando para compilar todos os arquivos `.java`:
 
