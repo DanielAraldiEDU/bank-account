@@ -8,4 +8,12 @@ public class Movement {
     this.type = type;
     this.value = value;
   }
+
+  public String getMovements() {
+    if (type == 'C') {
+      return "Movement type (C) Credit - " + description + " - Value: " + value;
+    } else {
+      return "Movement type (D) Debit - " + description + " - Value: " + value;
+    }
+  }
 }
