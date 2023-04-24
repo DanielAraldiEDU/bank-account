@@ -6,7 +6,7 @@ public class CurrentAccount {
   private Movement[] movements;
 
   public CurrentAccount(int number, double balance) {
-    this.special = true;
+    this.special = false;
     this.limit = 1000;
     this.number = number;
     this.balance = balance;
@@ -46,6 +46,7 @@ public class CurrentAccount {
       this.createMovement("Deposit some money.", 'C', value);
       return true;
     }
+
     System.out.println("Invalid value! Try again.");
     return false;
   }
@@ -56,7 +57,8 @@ public class CurrentAccount {
         this.movements[i].getMovements();
       }
     }
-    return "Check your extract above!";
+
+    return null;
   }
 
   public boolean drawMoney(double value) {
@@ -67,6 +69,7 @@ public class CurrentAccount {
       this.createMovement("Draw some money.", 'D', currentBalance);
       return true;
     }
+
     System.out.println("Invalid value! Try again.");
     return false;
   }
