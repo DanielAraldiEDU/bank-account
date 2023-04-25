@@ -13,7 +13,7 @@ public class CurrentAccount {
     this.movements = new Movement[9999];
   }
 
-  public CurrentAccount(double limit, int number, double balance) {
+  public CurrentAccount(int number, double balance, double limit) {
     this.special = true;
     this.limit = limit;
     this.number = number;
@@ -52,13 +52,15 @@ public class CurrentAccount {
   }
 
   protected String getExtract() {
+    String extract = "";
+
     for (int i = 0; i < this.movements.length; i++) {
       if (this.movements[i] != null) {
-        this.movements[i].getMovements();
+        extract += this.movements[i].getMovements() + "\n";
       }
     }
 
-    return null;
+    return extract == "" ? "No extracts" : extract;
   }
 
   public boolean drawMoney(double value) {
